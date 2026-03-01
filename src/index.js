@@ -17,7 +17,6 @@ function makeSpan(pupList) {
     pupList.forEach(pup => {
             const span = document.createElement("span")
             span.textContent = pup.name
-            // span.id = pup.id
             dogBar.append(span)
 
             span.addEventListener("click", () => {
@@ -98,8 +97,12 @@ filterBtn.addEventListener ("click", () => {
        const goodPups =  pups.filter (pup => pup.isGoodDog === true)
 
        if (filterMode === true) {
-            pups = goodPups
-            makeSpan(pups)
+            dogBar.innerHTML = ''
+            pupsDisplayed = goodPups
+            makeSpan(pupsDisplayed)
+       }else{
+              dogBar.innerHTML = ''
+              makeSpan(pups)
        }
     })
     
