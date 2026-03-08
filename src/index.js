@@ -79,9 +79,16 @@ function patchIsGoodDog (pup, updatedStatus, button) {
         .then (updatedPup => {
             pup.isGoodDog = updatedPup.isGoodDog;
             button.textContent = updatedPup.isGoodDog ? "Good Dog!": "Bad Dog!"
+            
+           const index = pups.findIndex(p => p.id === updatedPup.id)
+
+           if (index !== -1){
+            pups[index] = updatedPup
+           }
         })   
 
 }
+
 
 
 const filterBtn = document.getElementById("good-dog-filter")
